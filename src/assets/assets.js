@@ -41,6 +41,10 @@ import img16 from './img16.jpg'
 import song1 from  './song1.mp3'
 import song2 from  './song2.mp3'
 import song3 from  './song3.mp3'
+import songA1 from  './songA1.mp3'
+import songA2 from  './songA2.mp3'
+import songA3 from  './songA3.mp3'
+import songA4 from './songA4.mp3'
 
 export const assets = {
     bell_icon,
@@ -120,7 +124,7 @@ export const songsData = [
         name: "Song One",
         image: img1,
         file:song1,
-        desc:"Put a smile on your face with these happy tunes",
+        desc:"No Copyright   Song from YouTub",
         duration:"3:00"
     },
     {
@@ -128,7 +132,7 @@ export const songsData = [
         name: "Song Two",
         image: img2,
         file:song2,
-        desc:"Put a smile on your face with these happy tunes",
+        desc:"No Copyright   Song from YouTub",
         duration:"2:20"
     },
     {
@@ -136,39 +140,39 @@ export const songsData = [
         name: "Song Three",
         image: img3,
         file:song3,
-        desc:"Put a smile on your face with these happy tunes",
+        desc:"No Copyright   Song from YouTub",
         duration:"2:32"
     },
     {
         id:3,
-        name: "Song Four",
+        name: "Humsafar",
         image: img4,
-        file:song1,
-        desc:"Put a smile on your face with these happy tunes",
-        duration:"2:50"
+        file:songA1,
+        desc:"Singer : Arnab",
+        duration:"3:07"
     },
     {
         id:4,
-        name: "Song Five",
+        name: "Aaro Ekbar",
         image: img5,
-        file:song2,
-        desc:"Put a smile on your face with these happy tunes",
+        file:songA2,
+        desc:"Singer : Arnab",
         duration:"3:10"
     },
     {
         id:5,
-        name: "Song Six",
+        name: "Pehle Bhi Main",
         image: img14    ,
-        file:song3,
-        desc:"Put a smile on your face with these happy tunes",
+        file:songA3,
+        desc:"Singer : Arnab",
         duration:"2:45"
     },
     {
         id:6,
-        name: "Song Seven",
+        name: "Sun Raha Hai na tu",
         image: img7,
-        file:song1,
-        desc:"Put a smile on your face with these happy tunes",
+        file:songA4,
+        desc:"Singer : Arnab",
         duration:"2:18"
     },
     {
@@ -176,7 +180,7 @@ export const songsData = [
         name: "Song Eight",
         image: img12,
         file:song2,
-        desc:"Put a smile on your face with these happy tunes",
+        desc:"No Copyright   Song from YouTub",
         duration:"2:35"
     }
 ]

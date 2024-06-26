@@ -3,6 +3,8 @@ import DisplayHome from '../DisplayHome/DisplayHome'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import DisplayAlbum from '../DisplayAlbum/DisplayAlbum'
 import { albumsData } from '../../assets/assets'
+import {Install} from '../Install'
+import {Premium} from '../Premium'
 
 const Display = () => {
 
@@ -26,6 +28,8 @@ const Display = () => {
       <Routes>
         <Route path='/' element={<DisplayHome />} />
         <Route path='/album/:id' element={<DisplayAlbum />} />
+        <Route path='/Install' element={<Install/>} />
+        <Route path='/Premium' element={<Premium/>} />
       </Routes>
     </div>
   )
