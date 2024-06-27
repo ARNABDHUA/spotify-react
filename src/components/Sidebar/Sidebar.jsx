@@ -36,9 +36,15 @@ const Sidebar = () => {
               return val;}
           })
         .map((val)=>{
+          
+          const reset =()=>{
+            playWithId(val.id);
+            setsearchTerm("");
+          }
+
           return(
             <div className='showName'key={val.id}>
-              <h5 onClick={()=>playWithId(val.id)} className='flex  font-thin cursor-pointer hover:bg-[#ffffff2b]' >{val.name}</h5>
+              <h5 onClick={reset} className='flex  font-thin cursor-pointer hover:bg-[#ffffff2b]' >{val.name}</h5>
             </div>
           )
         })
