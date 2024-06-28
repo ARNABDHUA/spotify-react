@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { useState } from 'react'
 import { assets ,songsData } from '../../assets/assets'
 import { useNavigate } from 'react-router-dom'
@@ -8,6 +8,20 @@ const Sidebar = () => {
   const[searchTerm,setsearchTerm]= useState("")
     const navigate = useNavigate();
     const {playWithId}=useContext(PlayerContext)
+    const showRef=useRef()
+    const[showBt,setShowBt]=useState("true")
+
+    const view=()=>{
+      if(showBt==="true"){
+        showRef.current.style.display="initial"
+        setShowBt("false")
+      }
+      else{
+        showRef.current.style.display="none"
+        setShowBt("true")
+      }
+    }
+
     return (
         <div className='w-[25%] h-full p-2 flex-col gap-2 text-white hidden lg:flex'>
             <div className='bg-[#121212] h-[20%] rounded flex flex-col justify-around'>
@@ -62,16 +76,25 @@ const Sidebar = () => {
                         <img className='w-5' src={assets.plus_icon} alt="" />
                     </div>
                 </div>
-                <div className='p-4 bg-[#242424] m-2 rounded font-semibold flex flex-col items-start justify-start gap-1 pl-4'>
-                    <h1>Create your first playlist</h1>
-                    <p className=' font-light'>it's easy we'll help you</p>
-                    <button className='px-4 py-1.5 bg-white  text-[15px] text-black rounded-full mt-4'>Create playlist</button>
-                </div>
-                <div className='p-4 bg-[#242424] m-2 rounded font-semibold flex flex-col items-start justify-start gap-1 pl-4 mt-4'>
-                    <h1>Let's find some podcasts to follow</h1>
-                    <p className=' font-light'>We'll keep you updated on new episodes</p>
-                    <button className='px-4 py-1.5 bg-white  text-[15px] text-black rounded-full mt-4'>Browse podcasts</button>
-                </div>
+                <div className='p-4 bg-[#242424] m-2 rounded font-semibold flex flex-col items-start justify-start gap-1 pl-4 '>
+          <h1 className='text-xl'>Create your first playlist</h1>
+          
+          <div ref={showRef} className='max-h-12 temple overflow-auto ... no-scrollbar hidden'>{songsData.map((val)=>{ const setData=()=>{
+            
+            // write some code
+            // write some code
+            playWithId(val.id);
+            setsearchTerm("");
+
+          }
+            return(<div key={val.id}>
+              <div onClick={setData} className=' cursor-pointer hover:bg-[#ffffff2b]'>{val.name}</div>
+            </div>
+              )
+          })}</div>
+          <button onClick={view}  className='px-4 py-1.5 bg-white text-[15px] text-black rounded-full mt-4'>Create playlist</button>
+        </div>
+                
             </div>
         </div>
     )

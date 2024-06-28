@@ -35,7 +35,7 @@ const DisplayNav = () => {
        
       </div>
   
-      <div className='temple hover:w-[100%] overflow-auto ... no-scrollbar '>
+      <div className='temple max-h-20 hover:w-[100%] overflow-auto ... no-scrollbar '>
             {
             songsData
             .filter((val) =>{
