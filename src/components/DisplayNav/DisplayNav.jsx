@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import  { useContext } from 'react'
 import { useState } from 'react'
@@ -9,27 +9,46 @@ const DisplayNav = () => {
     const navigate= useNavigate();
     const[searchTerm,setsearchTerm]= useState("");
     const {playWithId}=useContext(PlayerContext)
+    const showRef=useRef()
+    const[showBt,setShowBt]=useState("true")
+
+    const view=()=>{
+      if(showBt==="true"){
+        showRef.current.style.display="initial"
+        setShowBt("false")
+      }
+      else{
+        showRef.current.style.display="none"
+        setShowBt("true")
+      }
+    }
    
     return (
       <>
       <div className='w-full flex justify-between items-center font-semibold '>
-          <div className='flex items-center gap-2 '>
+        <div onClick={() => navigate('/')} className=' flex items-center cursor-pointer p-2 gap-3 lg:hidden'>
+         
+          <img src={assets.spotify_logo} className='w-8 ' alt="logo" />
+          <p className='font-bold text-white'>Spotify</p>
+          
+        </div>
+          <div className=' items-center gap-2 hidden lg:flex '>
               <img onClick={()=>navigate(-1)} className='w-8 bg-black p-2 rounded-2xl cursor-pointer' src={assets.arrow_left} alt="" />
               <img onClick={()=>navigate( 1)} className='w-8 bg-black p-2 rounded-2xl cursor-pointer' src={assets.arrow_right} alt="" />
           </div>
           <div className='flex items-center gap-4'>
       
-          <div className='flex items-center gap-2 pl-8 cursor-pointer lg:hidden'>
-            <img className='w-6' src={assets.search_icon} alt="" />
+          <div className='flex items-center gap-1 pl-8 cursor-pointer lg:hidden'>
+            <img onClick={view} className='w-4' src={assets.search_icon} alt="" />
             <p className='font-bold'></p>
-            <input className='Search  outline-none w-[50%] rounded-lg font-normal text-sm bg-black' type="text" placeholder=' Search.' onChange={(e)=>{setsearchTerm(e.target.value);
+            <input ref={showRef} className='Search  outline-none w-[50%] rounded-lg font-normal text-sm bg-black min-w-20  hidden' type="text" placeholder=' Search.' onChange={(e)=>{setsearchTerm(e.target.value);
             }} />
   </div>
         
   
             <p onClick={()=> navigate('/Premium')} className='bg-white text-black text-[15px] rounded-2xl px-4 py-1 hidden md:block cursor-pointer'>Explor Premium</p>
             <p onClick={()=> navigate('/Install')}  className='text-white bg-[#242424] text-[15px] rounded-2xl px-3 py-1  cursor-pointer hidden md:block'>Install App</p>
-            <p className='bg-purple-500 text-black w-7 h-7 rounded-full flex justify-center items-center cursor-pointer'>A</p>
+            <p className='bg-purple-500 text-black  h-7 rounded-full flex justify-center items-center cursor-pointer min-w-7'>A</p>
           </div>
   
        
